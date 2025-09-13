@@ -10,6 +10,9 @@ second_number = 0
 third_number = 0
 message = ""
 
+RED = "\033[31m"
+RESET = "\033[0m"
+
 def strike(text: str) -> str:
     return f"\033[9m{text}\033[0m"
 
@@ -18,17 +21,18 @@ def print_ui():
     ui = f"""
                         _____________________
                         |                   |
-                        |   _____________   | (0)
+                        |   _____________   | {RED}(0){RESET}
                         |   |   |   |   |   |  |
-                        |   | {first_number} | {second_number} | {third_number} |   |  |
+                        |   | {RED}{first_number}{RESET} | {RED}{second_number}{RESET} | {RED}{third_number}{RESET} |   |  |
                         |   |___|___|___|   |  |
                         |                   |  |
                         |                   |==0
                         |                   |
                         |___________________|  space = spin, esc = exit
-
-                              {message}
-
+                       /                     \\
+                      /                       \\  {message}
+                     /                         \\
+                    /___________________________\\
     """
     print(ui)
 def spin():
